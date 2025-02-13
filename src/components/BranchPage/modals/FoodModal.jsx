@@ -15,7 +15,7 @@ const FoodModal = ({ food, isOpen, onClose, addToCart, removeFromCart, cart }) =
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4 }}
-                className="bg-white rounded-xl shadow-lg p-4 w-96 relative"
+                className="bg-white rounded-xl shadow-lg p-4 w-96 relative mx-3"
                 onClick={(e) => e.stopPropagation()} // Остановка всплытия, чтобы клик внутри модального окна не закрывал его
             >
                 {/* Кнопка закрытия */}
