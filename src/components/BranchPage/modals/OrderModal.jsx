@@ -13,7 +13,7 @@ const OrderModal = ({ isOpen, closeOrder, cartItems }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex justify-center items-center bg-white bg-opacity-50">
+        <div className="fixed inset-0 z-50 flex justify-center items-center backdrop-blur-lg bg-opacity-50">
             <div className="bg-white w-[90%] max-w-md rounded-2xl shadow-lg p-6 relative text-center max-h-[90vh] flex flex-col">
                 <div className="absolute top-4 left-4">
                     <button
