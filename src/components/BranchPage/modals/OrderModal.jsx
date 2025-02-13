@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IoArrowBack } from "react-icons/io5";
 
 const OrderModal = ({ isOpen, closeOrder, cartItems }) => {
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden"; // Блокировка прокрутки фона
+        } else {
+            document.body.style.overflow = "auto"; // Восстановление прокрутки
+        }
+    }, [isOpen]);
+
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
-            <div className="bg-white w-[90%] max-w-md rounded-2xl shadow-lg p-6 relative text-center">
+        <div className="fixed inset-0 z-50 flex justify-center items-center bg-white bg-opacity-50">
+            <div className="bg-white w-[90%] max-w-md rounded-2xl shadow-lg p-6 relative text-center max-h-[90vh] flex flex-col">
                 <div className="absolute top-4 left-4">
                     <button
                         onClick={closeOrder}
@@ -32,7 +40,7 @@ const OrderModal = ({ isOpen, closeOrder, cartItems }) => {
                     Ваш заказ
                 </h2>
 
-                <div className="bg-gray-100 p-4 rounded-lg mt-4">
+                <div className="bg-gray-100 p-4 rounded-lg mt-4 flex-1 overflow-y-auto max-h-[50vh]">
                     <div className="space-y-2">
                         {cartItems.map((item, i) => (
                             <div key={i} className="flex justify-between text-sm font-medium border-b pb-1">
@@ -45,7 +53,7 @@ const OrderModal = ({ isOpen, closeOrder, cartItems }) => {
 
                 <div className="flex justify-center mt-4">
                     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_2099_74)">
+                        <g clipPath="url(#clip0_2099_74)">
                             <path d="M22.5 0H0V22.5H22.5V0ZM18.75 18.75H3.75V3.75H18.75V18.75Z" fill="black"/>
                             <path d="M7.5 7.5H15V15H7.5V7.5ZM0 60H22.5V37.5H0V60ZM3.75 41.25H18.75V56.25H3.75V41.25Z" fill="black"/>
                             <path d="M7.5 45H15V52.5H7.5V45ZM37.5 0V22.5H60V0H37.5ZM56.25 18.75H41.25V3.75H56.25V18.75Z" fill="black"/>
