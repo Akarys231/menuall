@@ -21,7 +21,7 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
             onClick={closeCart} // Закрытие при клике на фон
         >
             <div
-                className={`modal-container ${isAnimating ? "slide-up" : "slide-down"} relative bg-white rounded-xl shadow-lg p-6 w-96`}
+                className={`modal-container ${isAnimating ? "slide-in-bottom" : "slide-out-bottom"} relative bg-white rounded-xl shadow-lg p-6 w-96`}
                 onClick={(e) => e.stopPropagation()} // Предотвращение закрытия при клике внутри
             >
                 {/* Кнопка закрытия */}
