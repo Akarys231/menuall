@@ -7,12 +7,10 @@ const SearchBar = ({ foodItems, onSearch }) => {
         const value = e.target.value;
         setQuery(value);
 
-        // Filter food items based on the query
         const filteredItems = foodItems.filter((item) =>
             item.name.toLowerCase().includes(value.toLowerCase())
         );
 
-        // Pass filtered items to the parent component
         onSearch(filteredItems);
     };
 

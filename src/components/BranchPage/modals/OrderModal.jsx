@@ -79,7 +79,7 @@ const OrderModal = ({ isOpen, closeOrder, cartItems }) => {
 
                 <button
                     onClick={closeOrder}
-                    className="w-full mt-6 bg-yellow-400 text-black py-3 rounded-lg font-bold text-md"
+                    className="w-full mt-6 bg-yellow-400 text-black py-3 rounded-lg font-bold text-xs"
                 >
                     К меню
                 </button>

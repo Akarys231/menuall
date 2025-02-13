@@ -88,7 +88,7 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
                         )}
 
                         {cartItems.length > 0 && (
-                            <div className="w-full bg-yellow-400 py-3 rounded-lg font-semibold mt-6">
+                            <div className="w-full bg-yellow-400 py-3 rounded-lg font-semibold mt-6 mb-4">
                                 <button onClick={openOrderModal} className="w-full text-black rounded-lg font-bold text-xs">
                                     Показать официанту
                                 </button>
