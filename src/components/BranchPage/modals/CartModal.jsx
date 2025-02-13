@@ -49,15 +49,24 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
                                         <div className="flex items-center space-x-4">
                                             <div className="w-14 h-14 bg-gray-200 rounded-lg"></div>
                                             <div>
-                                                <p className="text-sm font-medium">{item.name}</p>
+                                                <p className="text-sm font-medium w-40 truncate">{item.name}</p>
                                                 <p className="text-xs text-gray-500">Состав блюда</p>
                                                 <span className="text-sm font-bold">{item.price} ₸</span>
                                             </div>
                                         </div>
-                                        <div className="flex items-center space-x-2">
-                                            <button onClick={() => removeFromCart(item.id)} className="text-lg">-</button>
-                                            <span className="text-sm font-semibold">{item.quantity}</span>
-                                            <button onClick={() => addToCart(item.id, item.price, item.name)} className="text-lg">+</button>
+                                        <div className="flex items-center space-x-2 bg-[#F5F4F2] rounded-lg px-1 justify-between py-1">
+                                            <button onClick={() => removeFromCart(item.id)} className="text-lg">
+                                                <svg width="9" height="2" viewBox="0 0 9 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 1H8H1Z" fill="#D9D9D9"/>
+                                                    <path d="M1 1H8" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </button>
+                                            <span className="text-xs font-semibold">{item.quantity}</span>
+                                            <button onClick={() => addToCart(item.id, item.price, item.name)} className="text-lg">
+                                                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.5 1V8M1 4.5H8" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </button>
                                         </div>
                                     </div>
                                 ))}
@@ -84,7 +93,7 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
                         )}
 
                         {cartItems.length > 0 && (
-                            <div className="w-full bg-yellow-400 py-3 rounded-lg font-semibold mt-6 mb-4">
+                            <div className="w-full bg-yellow-400 py-3 rounded-lg font-semibold mt-6 mb-4 pb-2">
                                 <button onClick={openOrderModal} className="w-full text-black rounded-lg font-bold text-xs">
                                     Показать официанту
                                 </button>

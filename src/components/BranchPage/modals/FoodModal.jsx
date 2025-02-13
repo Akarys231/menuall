@@ -53,7 +53,7 @@ const FoodModal = ({ food, isOpen, onClose, addToCart, removeFromCart, cart }) =
                         </button>
                     </div>
                     <button
-                        onClick={() => addToCart(food.id, food.price, food.name)}
+                        onClick={onClose}
                         className="bg-yellow-500 text-white px-4 py-2 rounded-lg font-medium ms-2 w-full h-10 flex items-center justify-center"
                     >
                         Добавить

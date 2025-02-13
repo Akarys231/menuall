@@ -13,7 +13,7 @@ const foodItems = [
     // Category: Plov
     { id: 5, name: "Бешбармак", price: 5000, img: plov, category: "plov", isHit: false },
     { id: 6, name: "Плов классический", price: 4800, img: plov, category: "plov", isHit: false },
-    { id: 7, name: "Плов узбекский", price: 5200, img: plov, category: "plov", isHit: true },
+    { id: 7, name: "Плов узбекский Плов узбекский Плов узбекский Плов узбекский", price: 5200, img: plov, category: "plov", isHit: true },
     { id: 8, name: "Плов с курицей", price: 4500, img: plov, category: "plov", isHit: true },
 
     // Category: Soups
