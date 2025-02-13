@@ -37,6 +37,10 @@
             });
         };
 
+        const clearCart = () => {
+            setCart({});
+        };
+
         const totalAmount = Object.values(cart).reduce(
             (sum, item) => sum + item.price * item.quantity,
             0
@@ -57,6 +61,7 @@
                     cartItems={Object.values(cart)}
                     addToCart={addToCart}
                     removeFromCart={removeFromCart}
+                    clearCart={clearCart} // Передача clearCart
                     openOrderModal={() => setOrderOpen(true)}
                 />
                 <FoodModal/>

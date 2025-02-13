@@ -6,10 +6,10 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
     useEffect(() => {
         if (isOpen) {
             setIsAnimating(true);
-            document.body.style.overflow = "hidden"; // Блокировка прокрутки фона
+            document.body.style.overflow = "hidden";
         } else {
             setIsAnimating(false);
-            document.body.style.overflow = "auto"; // Восстановление прокрутки фона
+            document.body.style.overflow = "auto";
         }
     }, [isOpen]);
 
@@ -17,13 +17,27 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
 
     return (
         <div className={`modal-overlay ${isAnimating ? "fade-in" : "fade-out"}`}>
-            <div className={`modal-container ${isAnimating ? "slide-up" : "slide-down"}`}>
-                <div className="p-6 flex flex-col h-full">
-                    <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-xl font-bold">Ваш заказ</h2>
-                        <button onClick={clearCart} className="text-sm text-gray-500">Очистить</button>
-                    </div>
+            <div className={`modal-container ${isAnimating ? "slide-up" : "slide-down"} relative`}>
 
+                {/* Кнопка закрытия */}
+                <button
+                    onClick={closeCart}
+                    className="absolute top-6 right-4"
+                >
+                    <svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="10" fill="#FDCC45"/>
+                        <path d="M7 7L13 13M7 13L13 7" stroke="#272727" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+
+                </button>
+
+                <div className="p-6 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-4">
+                        <h2 className="text-xl font-bold">Ваш заказ</h2>
+                        <button onClick={clearCart} className="text-[11px] mt-2 text-gray-500">
+                            Очистить
+                        </button>
+                    </div>
                     <div className="flex-1 overflow-y-auto max-h-[50vh] pr-2">
                         {cartItems.length === 0 ? (
                             <p className="text-center text-gray-500">Ваша корзина пуста</p>
