@@ -1,0 +1,155 @@
+@import "tailwindcss";
+body {
+  margin: 0;
+  display: flex;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+}
+
+.scroll-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffcc40;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Always on top of content */
+  font-size: 20px; /* Default font size */
+  width: 48px; /* Default size */
+  height: 48px; /* Default size */
+}
+
+.scroll-button:hover {
+  background-color: #ffb500;
+}
+
+@media (min-width: 768px) {
+  .scroll-button {
+    width: 56px; /* Increased size on medium screens */
+    height: 56px; /* Increased size on medium screens */
+    font-size: 24px; /* Larger font size on medium screens */
+  }
+}
+
+@media (max-width: 320px) {
+  .scroll-button {
+    width: 48px; /* Default for smaller screens */
+    height: 48px; /* Default for smaller screens */
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Скрывает скролл в Chrome, Safari и Edge */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Скрывает скролл в IE и Edge */
+  scrollbar-width: none; /* Скрывает скролл в Firefox */
+}
+
+/*Slider*/
+.slider {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider_wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slides_wrapper {
+  width: 100%;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+
+@media (max-width: 1024px) {
+  .slider {
+    max-width: 768px;
+  }
+
+  .slide img {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {
+    max-width: 100%;
+  }
+
+  .slide img {
+    height: 250px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .slide img {
+    height: 170px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}
