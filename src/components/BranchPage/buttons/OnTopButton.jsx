@@ -42,7 +42,7 @@ const ScrollToTopButton = () => {
                         animate__animated ${isAnimating ? "animate__backOutLeft" : "animate__backInLeft"}
                     `}
                     style={{
-                        zIndex: 1000,
+                        zIndex: 1,
                     }}
                 >
                     <IoIosArrowUp size="1.25rem" className="sm:text-lg md:text-xl lg:text-2xl" color="black" />

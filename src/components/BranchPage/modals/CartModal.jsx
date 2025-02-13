@@ -17,14 +17,13 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
 
     return (
         <div
-            className={`modal-overlay ${isAnimating ? "fade-in" : "fade-out"} fixed inset-0 flex items-center justify-center z-50`}
-            onClick={closeCart} // Закрытие при клике на фон
+            className={`modal-overlay ${isAnimating ? "fade-in" : "fade-out"} fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50`}
+            onClick={closeCart}
         >
             <div
-                className={`modal-container ${isAnimating ? "slide-in-bottom" : "slide-out-bottom"} relative bg-white rounded-xl shadow-lg p-6 w-96`}
-                onClick={(e) => e.stopPropagation()} // Предотвращение закрытия при клике внутри
+                className={`modal-container ${isAnimating ? "slide-in-bottom" : "slide-out-bottom"} relative bg-white rounded-xl shadow-lg p-6 w-[400px]`}
+                onClick={(e) => e.stopPropagation()}
             >
-                {/* Кнопка закрытия */}
                 <button
                     onClick={closeCart}
                     className="absolute top-6 right-4"
@@ -36,11 +35,9 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
                 </button>
 
                 <div className="flex flex-col h-full">
-                    <div className="flex items-center gap-2 mb-4">
-                        <h2 className="text-xl font-bold">Ваш заказ</h2>
-                        <button onClick={clearCart} className="text-[11px] mt-2 text-gray-500">
-                            Очистить
-                        </button>
+                    <div className="flex flex-row mb-4">
+                        <h2 className="text-xl font-bold mr-3">Ваш заказ</h2>
+                        <button onClick={clearCart} className="text-[11px] text-gray-500 mt-2">Очистить</button>
                     </div>
                     <div className="flex-1 overflow-y-auto max-h-[50vh] pr-2">
                         {cartItems.length === 0 ? (
@@ -48,12 +45,13 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
                         ) : (
                             <div className="space-y-4">
                                 {cartItems.map((item) => (
-                                    <div key={item.id} className="flex items-center justify-between">
+                                    <div key={item.id} className="flex items-center justify-between border-b border-gray-300 pb-2">
                                         <div className="flex items-center space-x-4">
                                             <div className="w-14 h-14 bg-gray-200 rounded-lg"></div>
                                             <div>
                                                 <p className="text-sm font-medium">{item.name}</p>
                                                 <p className="text-xs text-gray-500">Состав блюда</p>
+                                                <span className="text-sm font-bold">{item.price} ₸</span>
                                             </div>
                                         </div>
                                         <div className="flex items-center space-x-2">
@@ -61,14 +59,12 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
                                             <span className="text-sm font-semibold">{item.quantity}</span>
                                             <button onClick={() => addToCart(item.id, item.price, item.name)} className="text-lg">+</button>
                                         </div>
-                                        <span className="text-sm font-bold">{item.price * item.quantity} ₸</span>
                                     </div>
                                 ))}
                             </div>
                         )}
                     </div>
 
-                    {/* Нижний фиксированный блок */}
                     <div className="mt-4">
                         <button onClick={closeCart} className="w-full bg-gray-100 py-3 rounded-lg font-semibold text-xs">
                             Открыть меню
@@ -77,11 +73,11 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
                         {cartItems.length > 0 && (
                             <div className="mt-4">
                                 <div className="flex justify-between text-sm font-medium">
-                                    <span>Итого:</span>
+                                    <span>Итого</span>
                                     <span>{cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)} ₸</span>
                                 </div>
                                 <div className="flex justify-between text-sm font-medium mt-2">
-                                    <span>Полная стоимость:</span>
+                                    <span>Полная стоимость</span>
                                     <span>{cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)} ₸</span>
                                 </div>
                             </div>
