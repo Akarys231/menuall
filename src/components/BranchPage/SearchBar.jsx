@@ -17,7 +17,7 @@ const SearchBar = ({ foodItems, onSearch }) => {
     };
 
     return (
-        <div className="mt-4  mx-auto flex items-center bg-gray-200 border border-gray-300 rounded-full px-4 py-3 w-full transition-all duration-300 gap-2">
+        <div className="mt-4 mx-auto flex items-center bg-gray-200 border border-gray-300 rounded-full px-4 py-3 w-auto transition-all duration-300 gap-2">
             <svg
                 className="w-5 h-5 text-gray-400 flex-shrink-0"
                 fill="none"

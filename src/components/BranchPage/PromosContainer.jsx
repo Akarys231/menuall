@@ -55,8 +55,8 @@ const PromosContainer = () => {
     };
 
     return (
-        <div className="slider">
-            <div className="slider_wrapper" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+        <div className="slider  px-2">
+            <div className="slider_wrapper rounded-lg" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
                 <div className="slides_wrapper">
                     <div
                         className="slides"

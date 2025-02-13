@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "animate.css";
 
 const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, clearCart, openOrderModal }) => {
     const [isAnimating, setIsAnimating] = useState(false);
@@ -17,11 +16,8 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
     if (!isOpen && !isAnimating) return null;
 
     return (
-        <div
-            className={`fixed inset-0 z-50 flex justify-center items-center bg-opacity-50
-                ${isAnimating ? "animate__animated animate__fadeInUpBig" : "animate__animated animate__fadeOutDownBig"}`}
-        >
-            <div className="bg-white w-full max-w-md rounded-xl overflow-hidden shadow-lg max-h-[90vh] flex flex-col">
+        <div className={`modal-overlay ${isAnimating ? "fade-in" : "fade-out"}`}>
+            <div className={`modal-container ${isAnimating ? "slide-up" : "slide-down"}`}>
                 <div className="p-6 flex flex-col h-full">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-xl font-bold">Ваш заказ</h2>
