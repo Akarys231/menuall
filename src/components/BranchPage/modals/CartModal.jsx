@@ -16,9 +16,14 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
     if (!isOpen && !isAnimating) return null;
 
     return (
-        <div className={`modal-overlay ${isAnimating ? "fade-in" : "fade-out"}`}>
-            <div className={`modal-container ${isAnimating ? "slide-up" : "slide-down"} relative`}>
-
+        <div
+            className={`modal-overlay ${isAnimating ? "fade-in" : "fade-out"} fixed inset-0 flex items-center justify-center z-50`}
+            onClick={closeCart} // Закрытие при клике на фон
+        >
+            <div
+                className={`modal-container ${isAnimating ? "slide-up" : "slide-down"} relative bg-white rounded-xl shadow-lg p-6 w-96`}
+                onClick={(e) => e.stopPropagation()} // Предотвращение закрытия при клике внутри
+            >
                 {/* Кнопка закрытия */}
                 <button
                     onClick={closeCart}
@@ -26,12 +31,11 @@ const CartModal = ({ isOpen, closeCart, cartItems, addToCart, removeFromCart, cl
                 >
                     <svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="10" cy="10" r="10" fill="#FDCC45"/>
-                        <path d="M7 7L13 13M7 13L13 7" stroke="#272727" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 7L13 13M7 13L13 7" stroke="#272727" strokeWidth="0.7" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-
                 </button>
 
-                <div className="p-6 flex flex-col h-full">
+                <div className="flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-4">
                         <h2 className="text-xl font-bold">Ваш заказ</h2>
                         <button onClick={clearCart} className="text-[11px] mt-2 text-gray-500">

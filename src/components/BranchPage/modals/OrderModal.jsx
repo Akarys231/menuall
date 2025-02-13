@@ -15,20 +15,30 @@ const OrderModal = ({ isOpen, closeOrder, cartItems }) => {
     return (
         <div className="fixed inset-0 z-50 flex justify-center items-center backdrop-blur-lg bg-opacity-50">
             <div className="bg-white w-[90%] max-w-md rounded-2xl shadow-lg p-6 relative text-center max-h-[90vh] flex flex-col">
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-7">
                     <button
                         onClick={closeOrder}
-                        className="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black shadow-md hover:shadow-lg"
                     >
-                        <IoArrowBack size={20} />
+                        <svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="10" fill="#FDCC45"/>
+                            <mask id="path-2-inside-1_0_1" fill="white">
+                                <path d="M13.4999 10.5H7.37492L9.99992 13.125L9.66992 13.5L6.41992 10.25L9.66992 7L9.99992 7.375L7.37492 10H13.4999V10.5Z"/>
+                            </mask>
+                            <path d="M13.4999 10.5H7.37492L9.99992 13.125L9.66992 13.5L6.41992 10.25L9.66992 7L9.99992 7.375L7.37492 10H13.4999V10.5Z" fill="#272727"/>
+                            <path d="M13.4999 10.5V14.5H17.4999V10.5H13.4999ZM7.37492 10.5V6.5H-2.28193L4.54649 13.3284L7.37492 10.5ZM9.99992 13.125L13.0028 15.7675L15.482 12.9502L12.8283 10.2966L9.99992 13.125ZM9.66992 13.5L6.84149 16.3284L9.85622 19.3431L12.6728 16.1425L9.66992 13.5ZM6.41992 10.25L3.59149 7.42157L0.763068 10.25L3.59149 13.0784L6.41992 10.25ZM9.66992 7L12.6728 4.35749L9.85622 1.15685L6.84149 4.17157L9.66992 7ZM9.99992 7.375L12.8283 10.2034L15.482 7.54978L13.0028 4.73249L9.99992 7.375ZM7.37492 10L4.54649 7.17157L-2.28193 14H7.37492V10ZM13.4999 10H17.4999V6H13.4999V10ZM13.4999 6.5H7.37492V14.5H13.4999V6.5ZM4.54649 13.3284L7.17149 15.9534L12.8283 10.2966L10.2033 7.67157L4.54649 13.3284ZM6.99707 10.4825L6.66707 10.8575L12.6728 16.1425L13.0028 15.7675L6.99707 10.4825ZM12.4983 10.6716L9.24835 7.42157L3.59149 13.0784L6.84149 16.3284L12.4983 10.6716ZM9.24835 13.0784L12.4983 9.82843L6.84149 4.17157L3.59149 7.42157L9.24835 13.0784ZM6.66707 9.64251L6.99707 10.0175L13.0028 4.73249L12.6728 4.35749L6.66707 9.64251ZM7.17149 4.54657L4.54649 7.17157L10.2033 12.8284L12.8283 10.2034L7.17149 4.54657ZM7.37492 14H13.4999V6H7.37492V14ZM9.49992 10V10.5H17.4999V10H9.49992Z" fill="black" mask="url(#path-2-inside-1_0_1)"/>
+                        </svg>
+
                     </button>
                 </div>
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-4 right-6">
                     <button
                         onClick={closeOrder}
-                        className="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black shadow-md hover:shadow-lg"
                     >
-                        ✕
+                        <svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="10" fill="#FDCC45"/>
+                            <path d="M7 7L13 13M7 13L13 7" stroke="#272727" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
                     </button>
                 </div>
 
@@ -69,7 +79,7 @@ const OrderModal = ({ isOpen, closeOrder, cartItems }) => {
 
                 <button
                     onClick={closeOrder}
-                    className="w-full mt-6 bg-yellow-400 text-black py-3 rounded-lg font-bold text-lg"
+                    className="w-full mt-6 bg-yellow-400 text-black py-3 rounded-lg font-bold text-md"
                 >
                     К меню
                 </button>

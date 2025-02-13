@@ -7,37 +7,33 @@ const FoodModal = ({ food, isOpen, onClose, addToCart, removeFromCart, cart }) =
     const quantity = cart[food.id]?.quantity || 0;
 
     return (
-        <div className="mx-4 fixed inset-0 flex items-center justify-center z-50">
+        <div
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-md"
+            onClick={onClose}
+        >
             <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4 }}
                 className="bg-white rounded-xl shadow-lg p-4 w-96 relative"
+                onClick={(e) => e.stopPropagation()} // Остановка всплытия, чтобы клик внутри модального окна не закрывал его
             >
+                {/* Кнопка закрытия */}
                 <button
                     onClick={onClose}
-                    className="mb-2 mt-2 mr-2 absolute top-2 right-2 w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center shadow-md hover:bg-yellow-500 transition"
+                    className="absolute top-2 right-2"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="15"
-                        height="15"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="black"
-                        strokeWidth="1"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
+                    <svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="10" fill="#FDCC45"/>
+                        <path d="M7 7L13 13M7 13L13 7" stroke="#272727" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
+
                 </button>
 
-                <img src={food.img} alt={food.name} className=" mt-4 w-full h-48 object-cover rounded-lg" />
-                <h2 className="text-m font-semibold mt-4">{food.name}</h2>
+                <img src={food.img} alt={food.name} className="mt-4 w-full h-48 object-cover rounded-lg" />
+                <h2 className="text-lg font-semibold mt-4">{food.name}</h2>
                 <p className="text-gray-500 text-xs my-2">Состав</p>
-                <p className="text-s font-bold mt-2">{food.price} ₸</p>
+                <p className="text-sm font-bold mt-2">{food.price} ₸</p>
 
                 <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center bg-gray-200 rounded-lg h-10">
